@@ -35,3 +35,51 @@ The goal was to create an environment for running multiple virtual machines (VMs
 ### **3️⃣ Accessing the Web Interface**  
 - Logged into `https://<server-ip>:8006` from a browser  
 - **Credentials:**  
+
+
+---
+
+### **4️⃣ Creating VMs & Containers**  
+- Uploaded OS ISOs (Ubuntu Server, Debian, Kali Linux) to Proxmox storage  
+- Created **VMs** with allocated CPU, RAM, and disk space  
+- Created **LXC containers** for lightweight services  
+
+---
+
+### **5️⃣ Deploying Services**  
+- **Docker + Portainer** → App deployment & management  
+- **Pi-hole** → Network-wide ad blocker  
+- **File Server (Nextcloud/Samba)** → Shared storage  
+
+---
+
+### **6️⃣ Backup & Snapshot Management**  
+- Created **snapshots** before major changes  
+- Configured **scheduled backups** to local storage and external drives  
+
+---
+
+### **7️⃣ Security Hardening**  
+- Enabled **2FA** for Proxmox login  
+- Configured **firewall rules** to limit access  
+- Set up **SSH key authentication**  
+
+---
+
+## 💡 Lab Ideas  
+- SOC environment with **Security Onion**  
+- Honeypots (Cowrie, Dionaea) for threat analysis  
+- VLAN & network segmentation experiments  
+- ELK stack for log aggregation and monitoring  
+
+---
+
+## 📂 Project Status  
+**In Progress** — Actively deploying new services and experimenting with security setups  
+
+---
+
+## 🔗 Resources  
+- [Proxmox VE Documentation](https://pve.proxmox.com/wiki/Main_Page)  
+- [Docker Documentation](https://docs.docker.com/)  
+- [Pi-hole Setup Guide](https://pi-hole.net/)  
