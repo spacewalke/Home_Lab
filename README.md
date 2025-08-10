@@ -36,10 +36,6 @@ Set root password, hostname, timezone, and network settings.
 Logged into https://<server-ip>:8006 from a browser.
 
 Credentials:
-
-vbnet
-Copy
-Edit
 User: root
 Password: <set during install>
 4️⃣ Creating VMs & Containers
