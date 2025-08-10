@@ -8,41 +8,30 @@ This project documents my process of building a self-hosted virtualization lab u
 
 ⚙️ Hardware & Software Used
 ZimaBlade mini-server
-
 1TB SSD
-
 DDR3L SO-DIMM RAM
-
 Proxmox VE (latest stable release)
-
 Client machine for management (Windows/Linux/Mac)
 
 🚀 Step-by-Step Implementation
 1️⃣ Hardware Preparation
 Installed 1TB SSD and DDR3L RAM into ZimaBlade.
-
 Connected power, Ethernet, keyboard, mouse, and monitor.
 
 2️⃣ Installing Proxmox VE
 Downloaded Proxmox VE ISO from official site.
-
 Flashed the ISO to a USB drive using Rufus.
-
 Booted ZimaBlade from USB and installed Proxmox VE on the SSD.
-
 Set root password, hostname, timezone, and network settings.
 
 3️⃣ Accessing the Web Interface
 Logged into https://<server-ip>:8006 from a browser.
-
 Credentials:
 User: root
 Password: <set during install>
 4️⃣ Creating VMs & Containers
 Uploaded OS ISOs (Ubuntu Server, Debian, Kali Linux) to Proxmox storage.
-
 Created VMs with allocated CPU, RAM, and disk space.
-
 Created LXC containers for lightweight services.
 
 5️⃣ Deploying Services
