@@ -1,10 +1,10 @@
 # Wireshark + Traffic Analysis — Report (1 page)
 
 ## Environment
-- Capture host: Ubuntu Server VM (no GUI), tshark for capture
-- Analysis host: Local machine with Wireshark GUI
-- Interface: <replace with interface name, e.g., `ens18`>
-- Capture duration: 120 seconds
+- Capture host: Ubuntu Server VM (no GUI) — tshark for packet capture
+-Analysis host: Local machine with Wireshark GUI
+-Interface: ens18
+-Capture duration: 120 seconds
 
 ## Methods
 1. Installed tshark on Ubuntu Server and granted non-root capture permissions.
