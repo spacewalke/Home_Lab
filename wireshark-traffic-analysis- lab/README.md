@@ -73,10 +73,10 @@ The goal was to identify DNS queries, TCP session establishments, and HTTPS traf
 ---
 
 ## 📜 Interpretation
-- **DNS** queries resolved domain names before connections.
-- **TCP** handshakes established secure sessions with remote hosts.
-- **TLS** encryption ensured no HTTP payloads were visible.
-- This short capture period reflected a baseline of expected user activity.
+- DNS lookups came first, as expected, before outbound connections
+- TCP handshakes set up the sessions cleanly
+- All web requests went over TLS, so no visible HTTP payloads
+- No unusual ports, scanning attempts, or odd domains
 
 ---
 
