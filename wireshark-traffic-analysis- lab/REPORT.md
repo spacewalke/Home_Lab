@@ -36,12 +36,12 @@
 (See `screenshots/` folder — include a Packet List view and a Packet Details view.)
 
 ## Interpretation
-###Traffic observed matches typical web browsing and basic diagnostic activity:
- -DNS lookups precede outbound TCP connections.
- -TCP 3-way handshakes occur before encrypted sessions.
- -All web traffic used TLS; no HTTP payloads were visible.
- -No signs of scanning, anomalous protocols, or unusual destinations in the short capture window.
- -No anomalous behaviors detected in this short baseline capture window.
+### Traffic observed matches typical web browsing and basic diagnostic activity:
+- DNS lookups precede outbound TCP connections.  
+- TCP 3-way handshakes occur before encrypted sessions.  
+- All web traffic used TLS; no HTTP payloads were visible.  
+- No signs of scanning, anomalous protocols, or unusual destinations in the short capture window.  
+- No anomalous behaviors detected in this short baseline capture window.  
 
 ## Appendix
 **Core commands used**
