@@ -7,11 +7,11 @@ The goal was to identify DNS queries, TCP session establishments, and HTTPS traf
 ---
 
 ## 📌 Environment
-- **Capture Host**: Ubuntu Server VM (no GUI)
-- **Analysis Host**: Local machine with Wireshark GUI
-- **Capture Tool**: `tshark`
-- **Interface**: `eth0` (replace if different)
-- **Capture Duration**: 120 seconds
+- **Capture Host:** Ubuntu Server VM (no GUI)  
+- **Analysis Host:** Local machine running Wireshark  
+- **Tool Used:** `tshark` for capture, Wireshark GUI for analysis  
+- **Interface:** `ens18` *(yours may differ)*  
+- **Duration:** 120 seconds of live traffic  
 
 ---
 
