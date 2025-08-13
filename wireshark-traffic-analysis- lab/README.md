@@ -49,12 +49,13 @@ The goal was to identify DNS queries, TCP session establishments, and HTTPS traf
 - **TCP Connections**: 2  
 - **HTTPS Sessions**: 3  
 
-**What I Saw**
--DNS queries for wikipedia.org, youtube.com, yahoo.com
--Two TCP connections initiated to port 443 (SYN packets)
--Proper TCP 3-way handshakes before TLS negotiation
--TLS 1.3 Client Hello / Server Hello messages, then encrypted data
--Overall pattern matched normal browsing and a few API calls
+### What I Saw
+- DNS lookups for `wikipedia.org`, `youtube.com`, and `yahoo.com`  
+- Two TCP connections started on port `443` (SYN packets)  
+- Clean TCP 3-way handshakes before moving into TLS setup  
+- TLS 1.3 exchanges: **Client Hello → Server Hello**, followed by encrypted data  
+- Overall traffic pattern matched normal web browsing with a touch of API activity  
+
 
 ---
 
