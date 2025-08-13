@@ -22,26 +22,26 @@
 
 ## Findings
 
-### Counts (fill these in)
-- DNS queries observed: <#>
-- TCP connections initiated (SYNs): <#>
-- HTTP sessions: <#> (may be 0 if everything used HTTPS)
-- HTTPS/TLS sessions (Client Hello events): <#>
+### Packet Counts (from Wireshark filter results)
+-DNS queries observed: 6
+-TCP connections initiated (SYNs): 2
+-HTTP sessions: 0 (all observed web requests used HTTPS)
+-HTTPS/TLS sessions (Client Hellos): 3
 
 ### Evidence
-- **DNS**: Queries for domains such as `wikipedia.org`, `youtube.com`, `yahoo.com`.
+- **DNS**: Queries for  `wikipedia.org`, `youtube.com`, `yahoo.com`.
 - **TCP Handshake**: Observed SYN → SYN/ACK → ACK to destination port 443.
 - **HTTPS**: TLS 1.3 Client Hello / Server Hello and subsequent encrypted application data.
 
 (See `screenshots/` folder — include a Packet List view and a Packet Details view.)
 
 ## Interpretation
-Traffic aligns with normal web browsing patterns:
-- DNS lookups resolve domains prior to connections.
-- TCP 3‑way handshakes establish sessions to port 443.
-- TLS handshakes negotiate encryption; application data is encrypted (no HTTP payloads visible).
-
-No anomalous behaviors detected in this short baseline capture window.
+Traffic observed matches typical web browsing and basic diagnostic activity:
+-DNS lookups precede outbound TCP connections.
+-TCP 3-way handshakes occur before encrypted sessions.
+-All web traffic used TLS; no HTTP payloads were visible.
+-No signs of scanning, anomalous protocols, or unusual destinations in the short capture window.
+-No anomalous behaviors detected in this short baseline capture window.
 
 ## Appendix
 **Core commands used**
