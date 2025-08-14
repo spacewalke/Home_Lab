@@ -21,11 +21,6 @@ This lab demonstrates:
 > 📌 *Note:* Status codes are internal Pi-hole identifiers. Refer to [Pi-hole documentation](https://docs.pi-hole.net/database/ftl/) for details on what each status value means in your version.
 
 ---
-
-yaml
-Copy
-Edit
-
 ---
 
 ## 📤 Exporting Yesterday’s Queries from Pi-hole
@@ -105,6 +100,7 @@ Teaching DNS forensics and fundamentals
 
 🛡️ Disclaimer
 This tool is intended for educational and monitoring use on networks you own or are authorized to analyze. Ensure compliance with local laws and privacy regulations.
+
 
 
 
