@@ -1,32 +1,45 @@
-﻿# Pi-hole DNS Lab — Daily Query Export & Quick Analysis
+# Pi-hole DNS Lab — Daily Query Export & Quick Analysis
 
-This repo captures a small **DNS monitoring lab** using Pi-hole. It shows how to export **yesterday's queries** from the Pi-hole FTL database, copy them to your workstation, and summarize what you saw.
+This repo documents a lightweight DNS monitoring setup using **Pi-hole**. It walks through how to extract **yesterday’s DNS query logs** from the Pi-hole FTL database, transfer the data to your local machine, and perform a basic breakdown of activity.
 
 <img src="images/pihole-yesterday_screenshot.png" alt="Pi-hole Query Log screenshot" width="100%">
 
-## What this shows
-- Real query traffic (e.g., `wpad.myneworksettings.com`, `browser.pipe.aria.microsoft.com`, `a-ring.msedge.net`) coming from a client `192.168.1.164` as seen in the screenshot.
-- Repeatable export pipeline: **FTL (SQLite) → CSV**.
-- Quick counts for domains/clients/status codes you can reuse for threat-hunting notes.
+---
 
-> Note: The _status_ codes are Pi-hole internal identifiers. Different values indicate allowed/blocked/cached/etc. Check Pi-hole docs for the exact legend in your version.
+## 🧪 What’s Inside
+
+This lab demonstrates:
+
+- Real-world DNS traffic visibility using Pi-hole logs.
+- A repeatable export pipeline: **FTL (SQLite) → CSV**.
+- Lightweight query analysis to identify:
+  - Noisy domains
+  - DNS patterns
+  - Suspicious lookups
+- Quick reference for **Pi-hole status codes** (e.g., allowed, blocked, cached).
+
+> 📌 *Note:* Status codes are internal Pi-hole identifiers. Refer to [Pi-hole documentation](https://docs.pi-hole.net/database/ftl/) for details on what each status value means in your version.
 
 ---
 
-## Repo Structure
+## 📁 Repository Structure
 
-```
 pi-hole-dns-lab/
 ├── README.md
 ├── artifacts/
-│   └── pihole-yesterday.csv        # exported queries (time, client, domain, type, status)
+│ └── pihole-yesterday.csv # Exported query log (time, client, domain, type, status)
 └── images/
-    └── pihole-yesterday_screenshot.png
-```
+└── pihole-yesterday_screenshot.png
+
+yaml
+Copy
+Edit
 
 ---
 
-## How I exported **yesterday** (on the Pi-hole box)
+## 📤 Exporting Yesterday’s Queries from Pi-hole
+
+Run the following **on your Pi-hole device** to export the previous day’s queries:
 
 ```bash
 sudo apt update && sudo apt -y install sqlite3
@@ -45,49 +58,61 @@ FROM queries
 WHERE timestamp >= $start AND timestamp < $end
 ORDER BY timestamp;
 " > ~/pihole-yesterday.csv
-```
+Then copy the CSV file to your local machine:
 
-Then copy to your PC (example on macOS/Linux Terminal):
-
-```bash
+bash
+Copy
+Edit
 scp <user>@<pihole-ip>:~/pihole-yesterday.csv ./pihole-yesterday.csv
-```
+💡 Tip: On Windows, you can use WinSCP or a WSL terminal with scp.
 
----
+📊 Quick Analysis Snapshot
+Total queries (yesterday): 5225
 
-## Quick Analysis Snapshot
+🔢 Query Count by Status Code
+Status Code	Count
+1	278
+2	1827
+3	1493
+5	25
+9	94
+12	1
+14	114
+17	1393
 
-**Total rows:** `5225`
+🌐 Top 10 Queried Domains
+Domain	Count
+privacy.aurasvc.io	814
+d2y36twrtb17ty.cloudfront.net	314
+status.zybooks.com	307
+wgu.hosted.panopto.com	248
+api.aurasvc.io	206
+wpad.mynetworksettings.com	170
+heapanalytics.com	106
+kv801.prod.do.dsp.mp.microsoft.com	101
+cdn-checkout.joinhoney.com	96
+go-updater.brave.com	87
 
-### Status code counts
-| status_code | count |
-|---|---|
-| 1 | 278 |
-| 2 | 1827 |
-| 3 | 1493 |
-| 5 | 25 |
-| 9 | 94 |
-| 12 | 1 |
-| 14 | 114 |
-| 17 | 1393 |
+🔍 Investigation Tips:
 
-### Top 10 domains
-| domain | count |
-|---|---|
-| privacy.aurasvc.io | 814 |
-| d2y36twrtb17ty.cloudfront.net | 314 |
-| status.zybooks.com | 307 |
-| wgu.hosted.panopto.com | 248 |
-| api.aurasvc.io | 206 |
-| wpad.mynetworksettings.com | 170 |
-| heapanalytics.com | 106 |
-| kv801.prod.do.dsp.mp.microsoft.com | 101 |
-| cdn-checkout.joinhoney.com | 96 |
-| go-updater.brave.com | 87 |
+Look for high-frequency domains (telemetry, trackers, CDNs).
 
+Investigate random-looking subdomains or unusual TLDs.
 
-> Tip: Investigate very noisy clients or suspicious domains (random subdomains, telemetry, ad/tracking, or unusual TLDs).
+Check which client IPs generate the most requests.
 
----
+✅ Use Cases
+This workflow is useful for:
+
+Threat hunting on home or lab networks
+
+Tracking telemetry / ad domains
+
+Troubleshooting noisy devices
+
+Teaching DNS forensics and fundamentals
+
+🛡️ Disclaimer
+This tool is intended for educational and monitoring use on networks you own or are authorized to analyze. Ensure compliance with local laws and privacy regulations.
 
 
