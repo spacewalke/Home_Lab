@@ -22,15 +22,6 @@ This lab demonstrates:
 
 ---
 
-## 📁 Repository Structure
-
-pi-hole-dns-lab/
-├── README.md
-├── artifacts/
-│ └── pihole-yesterday.csv # Exported query log (time, client, domain, type, status)
-└── images/
-└── pihole-yesterday_screenshot.png
-
 yaml
 Copy
 Edit
@@ -114,5 +105,6 @@ Teaching DNS forensics and fundamentals
 
 🛡️ Disclaimer
 This tool is intended for educational and monitoring use on networks you own or are authorized to analyze. Ensure compliance with local laws and privacy regulations.
+
 
 
