@@ -64,3 +64,4 @@
 - https://documentation.wazuh.com/current/user-manual/ruleset/ruleset-xml-syntax/rules.html
 - https://documentation.wazuh.com/current/installation-guide/firewall.html
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-health.html
+> Without Google & ChatGPT I would have not been able to trouble shot and learn from this!!!
