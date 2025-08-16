@@ -20,7 +20,7 @@
 - **Fixing GPG or Repo key Errors**
   Seeing package signature or key issues during updates or installs? Re-add the Wazuh GPG key and refresh your repo cache:
   ```bash
-  curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH |         sudo gpg --no-default-keyring --keyring gnupg-ring:/usr/share/keyrings/wazuh.gpg --import
+  curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | sudo gpg --no-default-keyring --keyring gnupg-ring:/usr/share/keyrings/wazuh.gpg --import
   sudo chmod 644 /usr/share/keyrings/wazuh.gpg || true
   sudo apt update
   ```
@@ -58,3 +58,9 @@
 - **Port scan**: try `sudo nmap -sS <target>` and filter by `rule.id: 8160 OR rule.id: 8161`.
 - **Raw logs** (Discover):
   - Queries like: `sshd AND authentication failure`, `nmap`, `apparmor`, `checksum`.
+
+## References & Resources
+**Official Documentation**
+- Wazuh Documentation
+- Ruleset Reference
+-Firewall Configuration Guide
