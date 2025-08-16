@@ -1,7 +1,7 @@
 ﻿# 🛡️ Wazuh SIEM Lab — Centralized Logging & Alerting
 
 ## 🎯 Goal
-Collect logs from multiple hosts into a central SIEM and validate detections for brute-force and port-scan activity.
+Set up a centralized SIEM using Wazuh, onboard multiple hosts as agents, and validate detection rules by simulating typical attack behaviors such as SSH brute-force attempts and port scanning.
 
 ---
 
@@ -14,14 +14,14 @@ Collect logs from multiple hosts into a central SIEM and validate detections for
    curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh
    sudo bash wazuh-install.sh --install-all
    ```
-   > We first tried the quick `-a` all‑in‑one flag and ran into GPG key and dashboard startup issues. Following the documented flow fixed it.
+   > I first tried the quick `-a` all‑in‑one flag and ran into GPG key and dashboard startup issues. Following the documented flow fixed it.
 
 2) **Onboard Hosts (Agents)**  
-   - From the Wazuh dashboard → **Agents** → *Add agent* → copy the registration command shown.  
-   - Installed agent on:
+   - From the Wazuh dashboard, I navigated to Agents → Add Agent, selected the OS, and copied the registration command. 
+   - Agents were successfully installed on:
      - `docker-host`
      - `pihole`
-   - If the agent doesn't show up immediately, restart the service and give it a few minutes.
+   - If an agent didn't appear immediately in the dashboard, restarting the agent service and waiting a few minutes helped resolve the issue
 
 3) **Trigger Test Events**
    - SSH brute force (simulate failed logins):
@@ -61,8 +61,12 @@ Collect logs from multiple hosts into a central SIEM and validate detections for
 
 
 ## ⚠️ Challenges Faced
-- Quick installer failed with GPG key and service startup issues.
-- Dashboard initially failed to load; required service checks/restarts.
-- Agents required troubleshooting (restart & wait for heartbeat).
+**Quick Installer Failed**
+- The fast setup using --a led to GPG key and dashboard startup issues. Switching to the full documented method resolved this.
+**Dashboard Didn’t Load Initially**
+- Required restarting wazuh-dashboard and elasticsearch services. Checking logs was key in identifying the cause.
+**Agent Connection Delays**
+- Agents occasionally took several minutes to register. Restarting the agent service usually resolved it.
+
 
 
