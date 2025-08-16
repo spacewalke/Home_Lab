@@ -60,7 +60,7 @@
   - Queries like: `sshd AND authentication failure`, `nmap`, `apparmor`, `checksum`.
 
 ## References & Resources
-**Official Documentation**
-- Wazuh Documentation
-- Ruleset Reference
--Firewall Configuration Guide
+- https://documentation.wazuh.com/current/index.html
+- https://documentation.wazuh.com/current/user-manual/ruleset/ruleset-xml-syntax/rules.html
+- https://documentation.wazuh.com/current/installation-guide/firewall.html
+- https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-health.html
